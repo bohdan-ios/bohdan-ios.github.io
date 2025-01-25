@@ -1,0 +1,331 @@
+body {
+    background-color: #000;
+    color: #333;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 18% auto;
+    padding: 20px;
+    border: 0px solid #888;
+    width: 80%;
+    border-radius: 14px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+* {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    text-align: center;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.cannotOpen {
+    color: #ffc008;
+}
+
+.cannotOpen:hover {
+    color: #b3190a;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container img,
+span {
+    vertical-align: middle;
+}
+
+.btn-primary {
+    width: 190px;
+    border-radius: .5rem;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 1rem 1.5rem;
+    background-color: #0084ef;
+    color: #FFFFFF;
+    font-family: Jersey\ 25,sans-serif;
+}
+
+.btn-primary:hover {
+    background-color: #4396D6;
+}
+
+.featureBox {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.featureBox div {
+    width: 452px;
+    margin: 10px;
+}
+
+.featureBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.titl {
+    color: #ffc008;
+    font-size: 1.875em;
+    font-weight: 600;
+    font-family: Jersey\ 25,sans-serif;
+}
+
+.company-name {
+    color: #d8e1ee;
+    font-size: 1.25em;
+    font-weight: 400;
+}
+
+.github-link {
+    color: #d8e1ee;
+    font-size: 1.25rem; 
+    font-weight: 500;
+    font-family: Jersey\ 25,sans-serif;
+}
+
+.expl {
+    color: #d8e1ee;
+    line-height: 2.25rem;
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    font-family: Jersey\ 25,sans-serif;
+}
+
+.footer {
+    width: 1000px;
+    text-align: center;
+    padding: 2.5em;
+    color: #4BA6EE;
+    font-family: Jersey\ 25,sans-serif;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+details>summary {
+    list-style: none;
+}
+
+details>summary::-webkit-details-marker {
+    display: none;
+}
+
+.footer div {
+    vertical-align: middle;
+}
+
+.reverse {
+    flex-direction: row-reverse;
+}
+
+.zh {
+    display: none;
+}
+
+.main {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 640px) {
+    .featureBox {
+        flex-direction: column;
+    }
+
+    .featureBox div {
+        width: 400px;
+        margin: 0;
+    }
+
+    .featureBox img {
+        margin-top: 40px;
+    }
+
+    .footer {
+        flex-direction: column;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+
+    .footer div {
+        margin: .4em;
+    }
+}
+
+@media (max-width: 400px) {
+    .featureBox div {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+.space-scene {
+    width: 100%;
+    background: #000000;
+    position: relative;
+    z-index: -2;
+}
+
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: twinkle 4s infinite ease-in-out;
+    z-index: -1;
+}
+
+.galaxy {
+    position: absolute;
+    border-radius: 50%;
+    animation: glow 4s infinite alternate;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.1);
+    }
+
+    100% {
+        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    }
+}
+
+.shooting-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.shooting-star {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, #ffffff, transparent);
+    animation: shoot 3s ease-out infinite;
+}
+
+@keyframes shoot {
+    0% {
+        transform: translateX(-100px) translateY(100px);
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(1000px) translateY(-1000px);
+        opacity: 0;
+    }
+}
+
+.asteroid-belt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(75deg);
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+}
+
+.asteroid {
+    position: absolute;
+    background: #555;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform-origin: 175px 0;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) translateX(175px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(175px) rotate(-360deg);
+    }
+}
+
+.jersey-25-regular {
+    font-family: "Jersey 25", serif;
+    font-weight: 400;
+    font-style: normal;
+}

@@ -1,0 +1,169 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #eee;
+    background-color: #181818;
+    font-size: 100%;
+}
+
+.container {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1.25rem; 
+}
+
+/* Header */
+header {
+    background-color: #222;
+    padding: 1.25rem 0; 
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2rem; 
+    font-weight: bold;
+    color: #00a8e8;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin-top: 0.625rem; 
+}
+
+nav li {
+    margin-left: 1.25rem; 
+}
+
+nav a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #00a8e8;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #121212;
+    padding: 3.75rem 0; 
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem; 
+    margin-bottom: 0.625rem; 
+    color: #00a8e8;
+}
+
+.hero p {
+    font-size: 1.2rem; 
+    margin-bottom: 1.25rem; 
+}
+
+.button {
+    display: inline-block;
+    background-color: #0077cc;
+    color: #fff;
+    padding: 0.9375rem 1.5625rem;
+    text-decoration: none;
+    border-radius: 0.3125rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.button:hover {
+    background-color: #00a8e8;
+}
+
+/* Sections (About, Projects, Contact) */
+section {
+    padding: 3.75rem 0; 
+}
+
+section h2 {
+    font-size: 2rem; 
+    margin-bottom: 1.25rem; 
+    text-align: center;
+    color: #00a8e8;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+    gap: 1.25rem; 
+}
+
+/* Project Card */
+.project-card {
+    text-align: center;
+    background-color: #222;
+    border: 0.0625rem solid #333;
+    padding: 1.25rem; 
+    border-radius: 0.3125rem;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+    width: 15rem;
+    width: 15rem;
+    margin-bottom: 0.625rem; 
+    border-radius: 0.3125rem;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.625rem; 
+    color: #00a8e8;
+}
+
+.project-card p {
+    margin-bottom: 0.9375rem;
+}
+
+.project-card .button {
+    background-color: #0077cc;
+}
+
+.project-card .button:hover {
+    background-color: #00a8e8;
+}
+
+.social-links {
+    margin-top: 1.25rem; 
+    text-align: center;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 0.625rem; 
+}
+
+.social-links img {
+    width: 5rem;
+    height: 5rem;
+    transition: transform 0.2s ease;
+}
+
+.social-links a:hover img {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: #121212;
+    color: #ccc;
+    text-align: center;
+    padding: 1.25rem 0; 
+}
