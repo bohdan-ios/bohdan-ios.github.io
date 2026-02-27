@@ -86,8 +86,9 @@ button.window-button:focus-visible {
 /* Note Widget */
 .note-widget {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 23%;
+    left: 78%;
+    /* Shifted right so bird is fully visible */
     transform: translate(-50%, -50%);
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(30px) saturate(180%);
@@ -96,7 +97,7 @@ button.window-button:focus-visible {
     padding: 40px 50px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 1px rgba(255, 255, 255, 0.2) inset;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    max-width: 500px;
+    width: 450px;
     color: white;
 }
 
@@ -132,20 +133,28 @@ button.window-button:focus-visible {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(30px) saturate(180%);
     -webkit-backdrop-filter: blur(30px) saturate(180%);
-    border-radius: 20px;
-    padding: 8px 20px 18px;
+    border-radius: 28px;
+    padding: 12px 20px;
     display: flex;
     gap: 12px;
-    align-items: flex-end;
+    align-items: center;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 1px rgba(255, 255, 255, 0.2) inset;
     border: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 100;
 }
 
+.dock-divider {
+    width: 1px;
+    height: 72px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 0 4px;
+    align-self: center;
+}
+
 .dock-icon {
     width: 64px;
     height: 64px;
-    border-radius: 16px;
+    border-radius: 14px;
     cursor: pointer;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
@@ -168,7 +177,8 @@ button.window-button:focus-visible {
 .dock-icon img {
     width: 100%;
     height: 100%;
-    border-radius: 16px;
+    border-radius: 14px;
+    object-fit: cover;
 }
 
 /* Tooltip */
@@ -348,6 +358,11 @@ button.window-button:focus-visible {
     cursor: default;
 }
 
+.ios-action-close {
+    display: none;
+    /* Hidden on desktop */
+}
+
 .app-window-titlebar {
     background: linear-gradient(to bottom, #f5f5f5, #e5e5e5);
     padding: 12px 16px;
@@ -416,6 +431,10 @@ button.window-button:focus-visible {
     margin-bottom: 32px;
 }
 
+.mobile-action-container {
+    width: 100%;
+}
+
 .app-link-button {
     display: inline-block;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -427,6 +446,8 @@ button.window-button:focus-visible {
     font-size: 16px;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    width: 100%;
+    margin-bottom: 12px;
 }
 
 .app-link-button:hover {
@@ -449,4 +470,543 @@ button.window-button:focus-visible {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+}
+
+/* ============ GAME WINDOWS ============ */
+.game-window {
+    width: 600px;
+}
+
+.window-title {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+.game-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* ============ BUG SQUASHER ============ */
+.bug-squasher-container {
+    background: #1e1e2e;
+    min-height: 420px;
+}
+
+.bs-hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bs-canvas {
+    display: block;
+    width: 100%;
+    cursor: crosshair;
+}
+
+/* ============ GAME RESTART BUTTON ============ */
+.game-restart {
+    padding: 6px 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.game-restart.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.game-restart:hover {
+    background: #5a6cd6;
+}
+
+/* ============ MOBILE / iOS RESPONSIVE ============ */
+@media (max-width: 768px) {
+
+    /* Make the dock smaller so it fits */
+    .macos-dock {
+        padding: 10px;
+        gap: 6px;
+        width: 95%;
+        max-width: 400px;
+        justify-content: space-between;
+    }
+
+    .dock-icon img {
+        width: 45px;
+        height: 45px;
+        border-radius: 10px;
+    }
+
+    .dock-divider {
+        height: 35px;
+    }
+
+    /* Windows become full-screen iOS apps */
+    .app-modal {
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 100vw;
+        height: 100vh;
+        z-index: 200;
+        /* above dock on mobile */
+    }
+
+    .app-window,
+    .game-window,
+    .game-window-wide {
+        width: 100% !important;
+        height: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .app-window-titlebar {
+        /* iOS-style titlebar */
+        justify-content: center;
+        padding: 16px;
+        background: #f5f5f5;
+        position: relative;
+    }
+
+    /* Hide macOS window buttons */
+    .window-buttons {
+        display: none;
+    }
+
+    .mobile-action-container {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        /* override 100% */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .app-window-content {
+        padding-bottom: 160px;
+        /* space for absolute buttons */
+        position: relative;
+        flex: 1;
+        /* allow content container to fill available vertical space so bottom anchor works */
+        overflow-y: auto;
+    }
+
+    .ios-action-close {
+        display: block;
+        width: 100%;
+        background: #e5e5ea;
+        /* iOS light gray secondary */
+        color: #007aff;
+        /* iOS blue */
+        border: none;
+        padding: 14px 32px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.2s, background 0.2s;
+    }
+
+    .ios-action-close:active {
+        background: #d1d1d6;
+        transform: scale(0.98);
+    }
+
+    .hide-on-ios {
+        display: none !important;
+    }
+
+    .game-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bs-canvas,
+    #flappyCanvas,
+    #runnerCanvas {
+        flex: 1;
+        object-fit: contain;
+    }
+
+    /* Hide the macOS desktop layout things */
+    .note-widget {
+        width: 90%;
+        left: 5%;
+        top: 5%;
+        transform: none;
+    }
+
+    .widget-bird {
+        display: none;
+        /* Hide interactive birds on mobile */
+    }
+}
+
+.bs-score {
+    color: #50fa7b;
+}
+
+.bs-timer {
+    color: #ff79c6;
+}
+
+.bs-game-area {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+/* Bug element */
+.bs-bug {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    animation: bugCrawl 3s ease-in-out infinite alternate;
+    transition: transform 0.15s, opacity 0.3s;
+    user-select: none;
+    z-index: 2;
+}
+
+.bs-bug:hover {
+    transform: scale(1.15);
+}
+
+.bs-bug-emoji {
+    font-size: 32px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.bs-bug-label {
+    font-family: 'SF Mono', monospace;
+    font-size: 9px;
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.15);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 2px;
+    white-space: nowrap;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bs-feature .bs-bug-label {
+    color: #50fa7b;
+    background: rgba(80, 250, 123, 0.15);
+}
+
+.bs-bug.bs-squashed {
+    transform: scale(0) rotate(45deg) !important;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.bs-bug.bs-fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+@keyframes bugCrawl {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(var(--move-x, 20px), var(--move-y, 10px));
+    }
+}
+
+/* Floating score text */
+.bs-float-text {
+    position: absolute;
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: 700;
+    pointer-events: none;
+    animation: floatUp 0.8s ease-out forwards;
+    z-index: 10;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+}
+
+/* Overlay (start/end screen) */
+.bs-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 30, 46, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+.bs-overlay-content {
+    text-align: center;
+    color: white;
+}
+
+.bs-overlay-emoji {
+    font-size: 56px;
+    margin-bottom: 12px;
+}
+
+.bs-overlay-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.bs-overlay-content p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+}
+
+.bs-hint {
+    font-size: 12px !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    line-height: 1.6;
+}
+
+.bs-final-score {
+    font-size: 20px !important;
+    font-weight: 700;
+    color: #50fa7b !important;
+}
+
+.bs-start-btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.bs-start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* ============ FLAPPY SWIFT ============ */
+#flappySwiftGame {
+    background: #0d1b2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#flappyCanvas {
+    display: block;
+    outline: none;
+    cursor: pointer;
+}
+
+/* ============ PARTICLE BIRD ============ */
+.particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.macos-desktop .note-widget {
+    z-index: 2;
+    position: relative;
+}
+
+/* ============ WIDGET BIRDS ============ */
+.widget-bird {
+    position: absolute;
+    cursor: pointer;
+    z-index: 3;
+    transition: transform 0.3s ease, opacity 0.5s ease;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+    user-select: none;
+}
+
+.widget-bird:hover {
+    cursor: pointer;
+}
+
+.widget-bird.bird-flying {
+    animation: birdFly 0.8s ease-out forwards !important;
+    pointer-events: none;
+}
+
+/* Bird 1: top-left edge */
+.bird-1 {
+    top: -20px;
+    left: 60px;
+    transform: scaleX(-1);
+    animation: birdPeck 2.5s ease-in-out infinite;
+}
+
+/* Bird 2: top-right area */
+.bird-2 {
+    top: -18px;
+    right: 80px;
+    animation: birdBob 2s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+/* Bird 3: right edge, middle */
+.bird-3 {
+    top: 40%;
+    right: -10px;
+    transform: scaleX(-1);
+    animation: birdLook 3s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+/* Bird 4: top center (baby chick) */
+.bird-4 {
+    top: -16px;
+    left: 50%;
+    margin-left: -11px;
+    animation: birdBob 1.8s ease-in-out infinite;
+    animation-delay: 0.8s;
+}
+
+@keyframes birdPeck {
+
+    0%,
+    100% {
+        transform: scaleX(-1) rotate(0deg);
+    }
+
+    15% {
+        transform: scaleX(-1) rotate(20deg);
+    }
+
+    30% {
+        transform: scaleX(-1) rotate(0deg);
+    }
+
+    45% {
+        transform: scaleX(-1) rotate(15deg);
+    }
+
+    60% {
+        transform: scaleX(-1) rotate(0deg);
+    }
+}
+
+@keyframes birdBob {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes birdLook {
+
+    0%,
+    100% {
+        transform: scaleX(-1) rotate(0deg);
+    }
+
+    25% {
+        transform: scaleX(-1) rotate(-10deg);
+    }
+
+    50% {
+        transform: scaleX(-1) rotate(5deg);
+    }
+
+    75% {
+        transform: scaleX(-1) rotate(-5deg);
+    }
+}
+
+@keyframes birdFly {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-40px) rotate(-15deg);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-80px) rotate(-30deg) translateX(30px);
+        opacity: 0;
+    }
+}
+
+.macos-desktop .macos-dock {
+    z-index: 100;
+}
+
+/* ============ SWIFT RUNNER ============ */
+.game-window-wide {
+    width: 720px;
+}
+
+#swiftRunnerGame {
+    background: #0a0a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#runnerCanvas {
+    display: block;
+    outline: none;
+    cursor: pointer;
 }

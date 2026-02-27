@@ -40,8 +40,16 @@
     <main id="main-content">
         <!-- macOS Desktop View -->
         <div class="macos-desktop">
+            <!-- Particle Swift Bird Background -->
+            <canvas id="particleBirdCanvas" class="particle-canvas" aria-hidden="true"></canvas>
+
             <!-- Note Widget -->
             <div class="note-widget">
+                <!-- Interactive Birds -->
+                <canvas class="widget-bird bird-1" width="36" height="28" title="Swift Bird"></canvas>
+                <canvas class="widget-bird bird-2" width="36" height="28" title="Swift Bird"></canvas>
+                <canvas class="widget-bird bird-3" width="36" height="28" title="Swift Bird"></canvas>
+
                 <div class="greeting">Hello, my name is</div>
                 <h1>Bohdan</h1>
                 <div class="summary">
@@ -60,6 +68,19 @@
                     aria-label="QuickOpenApp — coming soon" aria-disabled="true">
                     <img src="assets/quickopenapp-icon.png" alt="QuickOpenApp" width="64" height="64">
                 </button>
+                <button class="dock-icon" data-tooltip="Bug Squasher" aria-label="Open Bug Squasher game"
+                    id="dockBugSquasher">
+                    <img src="assets/realistic-squasher-icon.png" alt="Bug Squasher" width="64" height="64">
+                </button>
+                <button class="dock-icon" data-tooltip="Flappy Swift" aria-label="Open Flappy Swift game"
+                    id="dockFlappySwift">
+                    <img src="assets/realistic-flappy-icon.png" alt="Flappy Swift" width="64" height="64">
+                </button>
+                <button class="dock-icon" data-tooltip="Swift Runner" aria-label="Open Swift Runner game"
+                    id="dockSwiftRunner">
+                    <img src="assets/simple-runner-icon.png" alt="Swift Runner" width="64" height="64">
+                </button>
+                <div class="dock-divider"></div>
                 <a href="https://linkedin.com/in/bohdanbochkovskyi" target="_blank" rel="noopener" class="dock-icon"
                     data-tooltip="LinkedIn" aria-label="Open LinkedIn profile">
                     <img src="assets/linkedin-icon.svg" alt="LinkedIn" width="64" height="64">
@@ -86,8 +107,64 @@
                         Beautiful, minimal flag indicator that shows your active language layout on macOS.
                         Perfect for multilingual users.
                     </p>
-                    <a href="https://bohdan-ios.github.io/languageflag-website/" target="_blank" rel="noopener"
-                        class="app-link-button" id="appWebsiteLink">Visit Website</a>
+                    <div class="mobile-action-container">
+                        <a href="https://bohdan-ios.github.io/languageflag-website/" target="_blank" rel="noopener"
+                            class="app-link-button" id="appWebsiteLink">Visit Website</a>
+                        <button class="ios-action-close">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bug Squasher Game Window -->
+        <div class="app-modal" id="bugSquasherModal" role="dialog" aria-modal="true" aria-label="Bug Squasher game"
+            aria-hidden="true">
+            <div class="app-window game-window">
+                <div class="app-window-titlebar">
+                    <div class="window-buttons">
+                        <button class="window-button close" aria-label="Close window" id="closeBugSquasher"></button>
+                        <button class="window-button minimize" aria-label="Minimize window"></button>
+                        <button class="window-button maximize" aria-label="Maximize window"></button>
+                    </div>
+                    <span class="window-title">Bug Squasher — Xcode Debug Console</span>
+                    <button class="mobile-close-btn" aria-label="Done">Done</button>
+                </div>
+                <div class="game-container" id="bugSquasherGame"></div>
+            </div>
+        </div>
+
+        <!-- Flappy Swift Game Window -->
+        <div class="app-modal" id="flappySwiftModal" role="dialog" aria-modal="true" aria-label="Flappy Swift game"
+            aria-hidden="true">
+            <div class="app-window game-window">
+                <div class="app-window-titlebar">
+                    <div class="window-buttons">
+                        <button class="window-button close" aria-label="Close window" id="closeFlappySwift"></button>
+                        <button class="window-button minimize" aria-label="Minimize window"></button>
+                        <button class="window-button maximize" aria-label="Maximize window"></button>
+                    </div>
+                    <span class="window-title">Flappy Swift — Simulator</span>
+                </div>
+                <div class="game-container" id="flappySwiftGame">
+                    <canvas id="flappyCanvas" width="550" height="600"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Swift Runner Game Window -->
+        <div class="app-modal" id="swiftRunnerModal" role="dialog" aria-modal="true" aria-label="Swift Runner game"
+            aria-hidden="true">
+            <div class="app-window game-window game-window-wide">
+                <div class="app-window-titlebar">
+                    <div class="window-buttons">
+                        <button class="window-button close" aria-label="Close window" id="closeSwiftRunner"></button>
+                        <button class="window-button minimize" aria-label="Minimize window"></button>
+                        <button class="window-button maximize" aria-label="Maximize window"></button>
+                    </div>
+                    <span class="window-title">Swift Runner — Xcode Workspace</span>
+                </div>
+                <div class="game-container" id="swiftRunnerGame">
+                    <canvas id="runnerCanvas" width="700" height="450"></canvas>
                 </div>
             </div>
         </div>
@@ -123,11 +200,37 @@
                     <img src="assets/quickopenapp-icon.png" alt="QuickOpenApp" width="60" height="60" loading="lazy">
                     <span>QuickOpenApp</span>
                 </div>
+                <button class="ios-app-icon hide-on-ios" aria-label="Open Bug Squasher game"
+                    onclick="document.getElementById('dockBugSquasher').click()">
+                    <img src="assets/realistic-squasher-icon.png" alt="Bug Squasher" width="60" height="60"
+                        loading="lazy">
+                    <span>Bug Squasher</span>
+                </button>
+                <button class="ios-app-icon hide-on-ios" aria-label="Open Flappy Swift game"
+                    onclick="document.getElementById('dockFlappySwift').click()">
+                    <img src="assets/realistic-flappy-icon.png" alt="Flappy Swift" width="60" height="60"
+                        loading="lazy">
+                    <span>Flappy Swift</span>
+                </button>
+                <button class="ios-app-icon hide-on-ios" aria-label="Open Swift Runner game"
+                    onclick="document.getElementById('dockSwiftRunner').click()">
+                    <img src="assets/simple-runner-icon.png" alt="Swift Runner" width="60" height="60" loading="lazy">
+                    <span>Swift Runner</span>
+                </button>
+                <a href="https://linkedin.com/in/bohdanbochkovskyi" target="_blank" rel="noopener" class="ios-app-icon"
+                    style="text-decoration: none;">
+                    <img src="assets/linkedin-icon.svg" alt="LinkedIn" width="60" height="60" loading="lazy">
+                    <span>LinkedIn</span>
+                </a>
             </div>
         </div>
     </main>
 
     <script src="script.js"></script>
+    <script src="bug-squasher.js"></script>
+    <script src="flappy-swift.js"></script>
+    <script src="swift-runner.js"></script>
+    <script src="particle-bird.js"></script>
 </body>
 
 </html>

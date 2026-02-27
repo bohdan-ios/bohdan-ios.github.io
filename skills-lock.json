@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "skills": {
+    "develop-web-game": {
+      "source": "openai/skills",
+      "sourceType": "github",
+      "computedHash": "ce15d03cc8c299e062c6b6b31a1238264b06c7b23900a58861e53073e1ac9739"
+    },
+    "game-design-theory": {
+      "source": "pluginagentmarketplace/custom-plugin-game-developer",
+      "sourceType": "github",
+      "computedHash": "e87a16b82d8379b1389c94b15b16d2f52a611338467291aeeec4f72a73a7fd96"
+    },
+    "game-developer": {
+      "source": "jeffallan/claude-skills",
+      "sourceType": "github",
+      "computedHash": "d58fc7cbe659b521a527a2ddf8a2503d7cd95ae9c51b633df3c57f1f2f0023d0"
+    },
+    "game-development": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "5b4a4d63bfe9428cde86831c106b0b96afc5ec1d011303d0d4ee2eb608d44260"
+    }
+  }
+}
