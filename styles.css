@@ -9,6 +9,7 @@ body {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
+    background: url('assets/custom-wallpaper.jpg') center/cover no-repeat fixed;
 }
 
 /* ============ SKIP LINK ============ */
@@ -69,7 +70,7 @@ button.window-button:focus-visible {
     display: none;
     width: 100%;
     height: 100vh;
-    background: url('assets/wallpaper.png') center/cover no-repeat;
+    background: url('assets/custom-wallpaper.jpg') center/cover no-repeat;
     position: relative;
 }
 
