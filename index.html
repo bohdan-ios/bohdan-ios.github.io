@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bohdan — iOS & macOS Developer | Swift & SwiftUI Apps</title>
+    <meta name="description"
+        content="Bohdan is an iOS and macOS developer who builds beautiful, native applications with Swift and SwiftUI. Explore apps like LanguageFlag and more.">
+    <link rel="canonical" href="https://bohdan-ios.github.io/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bohdan-ios.github.io/">
+    <meta property="og:title" content="Bohdan — iOS & macOS Developer | Swift & SwiftUI Apps">
+    <meta property="og:description"
+        content="iOS and macOS developer building beautiful, native applications with Swift and SwiftUI.">
+    <meta property="og:image" content="https://bohdan-ios.github.io/assets/wallpaper.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bohdan — iOS & macOS Developer | Swift & SwiftUI Apps">
+    <meta name="twitter:description"
+        content="iOS and macOS developer building beautiful, native applications with Swift and SwiftUI.">
+    <meta name="twitter:image" content="https://bohdan-ios.github.io/assets/wallpaper.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="assets/wallpaper.png">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <main id="main-content">
+        <!-- macOS Desktop View -->
+        <div class="macos-desktop">
+            <!-- Note Widget -->
+            <div class="note-widget">
+                <div class="greeting">Hello, my name is</div>
+                <h1>Bohdan</h1>
+                <div class="summary">
+                    iOS Developer passionate about creating beautiful, native macOS and iOS applications.
+                    I love Swift, SwiftUI, and building tools that enhance productivity.
+                </div>
+            </div>
+
+            <!-- macOS Dock -->
+            <nav class="macos-dock" aria-label="Application dock">
+                <button class="dock-icon" data-tooltip="LanguageFlag" aria-label="Open LanguageFlag app preview"
+                    id="dockLanguageFlag">
+                    <img src="assets/languageflag-icon.png" alt="LanguageFlag" width="64" height="64">
+                </button>
+                <button class="dock-icon disabled" data-tooltip="QuickOpenApp (Coming Soon)"
+                    aria-label="QuickOpenApp — coming soon" aria-disabled="true">
+                    <img src="assets/quickopenapp-icon.png" alt="QuickOpenApp" width="64" height="64">
+                </button>
+            </nav>
+        </div>
+
+        <!-- App Preview Window -->
+        <div class="app-modal" id="appModal" role="dialog" aria-modal="true" aria-label="LanguageFlag app preview"
+            aria-hidden="true">
+            <div class="app-window">
+                <div class="app-window-titlebar">
+                    <div class="window-buttons">
+                        <button class="window-button close" aria-label="Close window" id="closeModalBtn"></button>
+                        <button class="window-button minimize" aria-label="Minimize window"></button>
+                        <button class="window-button maximize" aria-label="Maximize window"></button>
+                    </div>
+                </div>
+                <div class="app-window-content">
+                    <img src="assets/languageflag-icon.png" alt="LanguageFlag" class="app-icon-large" width="120"
+                        height="120" loading="lazy">
+                    <h2>LanguageFlag</h2>
+                    <p>
+                        Beautiful, minimal flag indicator that shows your active language layout on macOS.
+                        Perfect for multilingual users.
+                    </p>
+                    <a href="https://bohdan-ios.github.io/languageflag-website/" class="app-link-button"
+                        id="appWebsiteLink">Visit Website</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- iOS Mobile View -->
+        <div class="ios-mobile">
+            <!-- Status Bar -->
+            <div class="status-bar" aria-hidden="true">
+                <span>9:41</span>
+                <span>📶 WiFi 🔋</span>
+            </div>
+
+            <!-- Profile Card -->
+            <div class="ios-card">
+                <div class="greeting">Hello, my name is</div>
+                <h2>Bohdan</h2>
+                <div class="summary">
+                    iOS Developer passionate about creating beautiful, native macOS and iOS applications.
+                    I love Swift, SwiftUI, and building tools that enhance productivity.
+                </div>
+            </div>
+
+            <!-- My Apps Title -->
+            <div class="my-apps-heading">My Apps</div>
+
+            <!-- App Grid -->
+            <div class="app-grid">
+                <button class="ios-app-icon" aria-label="Open LanguageFlag app preview" id="iosLanguageFlag">
+                    <img src="assets/languageflag-icon.png" alt="LanguageFlag" width="60" height="60" loading="lazy">
+                    <span>LanguageFlag</span>
+                </button>
+                <div class="ios-app-icon disabled" aria-disabled="true">
+                    <img src="assets/quickopenapp-icon.png" alt="QuickOpenApp" width="60" height="60" loading="lazy">
+                    <span>QuickOpenApp</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
