@@ -147,8 +147,8 @@ button.window-button:focus-visible {
 .dock-divider {
     width: 1px;
     height: 72px;
-    background: rgba(255, 255, 255, 0.3);
-    margin: 0 4px;
+    background: rgba(255, 255, 255, 0.55);
+    margin: 0 12px;
     align-self: center;
 }
 
