@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- App icon background with rounded corners -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1040"/>
+      <stop offset="100%" style="stop-color:#0d0e1a"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1535"/>
+      <stop offset="100%" style="stop-color:#110e22"/>
+    </linearGradient>
+    <clipPath id="round">
+      <rect width="64" height="64" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+
+  <!-- TV screen body -->
+  <rect x="8" y="10" width="48" height="34" rx="4" fill="url(#screen)" stroke="#8b5cf6" stroke-width="1.5"/>
+
+  <!-- Screen inner glow line at top -->
+  <rect x="8" y="10" width="48" height="2" rx="1" fill="#8b5cf6" opacity="0.3"/>
+
+  <!-- Terminal prompt: > -->
+  <text x="12" y="33" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="14" font-weight="700" fill="#a78bfa">&#62;_</text>
+
+  <!-- Blinking cursor bar (small rect) -->
+  <rect x="33" y="22" width="8" height="2.5" rx="1" fill="#4ade80" opacity="0.85"/>
+
+  <!-- TV stand neck -->
+  <rect x="29" y="44" width="6" height="5" rx="1" fill="#2a2040"/>
+
+  <!-- TV stand base -->
+  <rect x="20" y="49" width="24" height="4" rx="2" fill="#2a2040"/>
+
+  <!-- Purple accent dot bottom right -->
+  <circle cx="54" cy="56" r="3" fill="#8b5cf6" opacity="0.8"/>
+</svg>
